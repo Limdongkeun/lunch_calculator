@@ -31,7 +31,6 @@ class MyHomeApp extends StatefulWidget {
 }
 
 class _MyHomeAppState extends State<MyHomeApp> {
-
   @override
   void initState() {
     super.initState();
@@ -63,20 +62,14 @@ class _MyHomeAppState extends State<MyHomeApp> {
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.blue[600],
-                      shape:
-                      RoundedRectangleBorder(	//모서리를 둥글게
-                          borderRadius: BorderRadius.circular(20)
-                      ),
+                      shape: RoundedRectangleBorder(
+                          //모서리를 둥글게
+                          borderRadius: BorderRadius.circular(20)),
                     ),
                     child: const Text(
                       '더치페이~~~~',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold
-                      ),
-                    )
-                )
-            ),
+                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ))),
             const SizedBox(width: 4.0),
             Expanded(
                 child: ElevatedButton(
@@ -84,114 +77,16 @@ class _MyHomeAppState extends State<MyHomeApp> {
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.blue[600],
-                      shape:
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)
-                      ),
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                     ),
                     child: const Text(
                       '각자 결제~~~~',
-                      style: TextStyle(
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.bold
-                      ),
-                    )
-                )
-            ),
+                      style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                    ))),
             const SizedBox(width: 4.0),
           ],
         ),
       ],
-    );
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: const Row(
-            children: [
-              Text(
-                '오늘 점심 총 얼마~~',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              Icon(
-                Icons.fastfood,
-                size: 30.0,
-                color: Colors.black,
-              ),
-            ],
-          ),
-          backgroundColor: Colors.blue[600],
-        ),
-        body: SafeArea(
-          child: Center(
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                Column(
-                  children: [
-                    const SizedBox(height: 24.0),
-                    Row(
-                      children: [
-                        const SizedBox(width: 4.0),
-                        Expanded(
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DutchPay()));
-                                },
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor: Colors.blue[600],
-                                  shape:
-                                  RoundedRectangleBorder(	//모서리를 둥글게
-                                      borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                child: const Text(
-                                  '더치페이~~~~',
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                )
-                            )
-                        ),
-                        const SizedBox(width: 4.0),
-                        Expanded(
-                            child: ElevatedButton(
-                                onPressed: () {},
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor: Colors.blue[600],
-                                  shape:
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(20)
-                                  ),
-                                ),
-                                child: const Text(
-                                  '각자 결제~~~~',
-                                  style: TextStyle(
-                                      fontSize: 20.0,
-                                      fontWeight: FontWeight.bold
-                                  ),
-                                )
-                            )
-                        ),
-                        const SizedBox(width: 4.0),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

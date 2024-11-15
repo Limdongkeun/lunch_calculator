@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,16 +7,15 @@ class Layout extends StatefulWidget {
   final List<Widget>? custom;
 
   const Layout({
-   super.key,
-   required this.title,
-   required this.icon,
-   this.custom,
+    super.key,
+    required this.title,
+    required this.icon,
+    this.custom,
   });
 
   @override
   State<StatefulWidget> createState() => _LayoutState();
 }
-
 
 class _LayoutState extends State<Layout> {
   @override
@@ -51,14 +49,13 @@ class _LayoutState extends State<Layout> {
                 children: [
                   const SizedBox(height: 24.0),
                   Expanded(
-                    child: SizedBox(
-                      child: Column(
-                        children: [
-                          ...widget.custom!,
-                        ],
-                      ),
-                    )
-                  ),
+                      child: SizedBox(
+                    child: Column(
+                      children: [
+                        ...widget.custom!,
+                      ],
+                    ),
+                  )),
                 ],
               ),
             ),
