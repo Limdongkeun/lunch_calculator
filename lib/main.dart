@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lunch_calculator/common/layout.dart';
+import 'package:lunch_calculator/dutchPay.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,56 +12,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue, primary: Colors.blue[600]),
         scaffoldBackgroundColor: Colors.white,
         useMaterial3: true,
       ),
+      home: const MyHomeApp(),
     );
   }
 }
 
-class Calculator extends StatefulWidget {
-  const Calculator({super.key});
+class MyHomeApp extends StatefulWidget {
+  const MyHomeApp({super.key});
 
   @override
-  State<StatefulWidget> createState() => _CalculatorState();
+  State<StatefulWidget> createState() => _MyHomeAppState();
 }
 
-class _CalculatorState extends State<Calculator> {
-  final TextEditingController _totalAmount = TextEditingController();
+class _MyHomeAppState extends State<MyHomeApp> {
 
   @override
   void initState() {
@@ -74,43 +44,151 @@ class _CalculatorState extends State<Calculator> {
 
   @override
   Widget build(BuildContext context) {
+    return Layout(
+      title: '오늘 점심 얼마??',
+      icon: const Icon(
+        Icons.fastfood,
+        size: 30.0,
+        color: Colors.black,
+      ),
+      custom: [
+        Row(
+          children: [
+            const SizedBox(width: 4.0),
+            Expanded(
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const DutchPay()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blue[600],
+                      shape:
+                      RoundedRectangleBorder(	//모서리를 둥글게
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                    ),
+                    child: const Text(
+                      '더치페이~~~~',
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    )
+                )
+            ),
+            const SizedBox(width: 4.0),
+            Expanded(
+                child: ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                      backgroundColor: Colors.blue[600],
+                      shape:
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20)
+                      ),
+                    ),
+                    child: const Text(
+                      '각자 결제~~~~',
+                      style: TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold
+                      ),
+                    )
+                )
+            ),
+            const SizedBox(width: 4.0),
+          ],
+        ),
+      ],
+    );
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-      child: SafeArea(
-        child: Center(
-          child: Stack(
-            clipBehavior: Clip.none,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: const Row(
             children: [
-              Column(
-                children: [
-                  Expanded(
-                    child: ListView(
-                      physics: const ClampingScrollPhysics(),
-                      children: const [
-                        Row(
-                          children: [
-                            Text(
-                              '오늘 점심은 총 얼마??',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 12.0),
-                        Row(
-                          children: [
-
-                          ],
-                        ),
-                      ],
-                    )
-                  ),
-                ],
+              Text(
+                '오늘 점심 총 얼마~~',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+              Icon(
+                Icons.fastfood,
+                size: 30.0,
+                color: Colors.black,
               ),
             ],
+          ),
+          backgroundColor: Colors.blue[600],
+        ),
+        body: SafeArea(
+          child: Center(
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Column(
+                  children: [
+                    const SizedBox(height: 24.0),
+                    Row(
+                      children: [
+                        const SizedBox(width: 4.0),
+                        Expanded(
+                            child: ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DutchPay()));
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.white,
+                                  backgroundColor: Colors.blue[600],
+                                  shape:
+                                  RoundedRectangleBorder(	//모서리를 둥글게
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                ),
+                                child: const Text(
+                                  '더치페이~~~~',
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                )
+                            )
+                        ),
+                        const SizedBox(width: 4.0),
+                        Expanded(
+                            child: ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.white,
+                                  backgroundColor: Colors.blue[600],
+                                  shape:
+                                  RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20)
+                                  ),
+                                ),
+                                child: const Text(
+                                  '각자 결제~~~~',
+                                  style: TextStyle(
+                                      fontSize: 20.0,
+                                      fontWeight: FontWeight.bold
+                                  ),
+                                )
+                            )
+                        ),
+                        const SizedBox(width: 4.0),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
