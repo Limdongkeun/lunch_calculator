@@ -3,13 +3,11 @@ import 'package:flutter/material.dart';
 
 class Layout extends StatefulWidget {
   final String title;
-  final Icon icon;
   final List<Widget>? custom;
 
   const Layout({
     super.key,
     required this.title,
-    required this.icon,
     this.custom,
   });
 
@@ -36,7 +34,6 @@ class _LayoutState extends State<Layout> {
                   color: Colors.white,
                 ),
               ),
-              widget.icon,
             ],
           ),
           backgroundColor: Colors.blue[600],
