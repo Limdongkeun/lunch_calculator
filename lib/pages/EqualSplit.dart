@@ -52,8 +52,7 @@ class _EqualSplitTabState extends State<EqualSplitTab> {
     return Layout(
       title: 'N분의 1 정산',
       custom: [
-        Padding(
-          padding: const EdgeInsets.all(16.0),
+        Expanded(
           child: SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
             child: Column(

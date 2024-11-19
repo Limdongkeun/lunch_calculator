@@ -36,7 +36,7 @@ class _LayoutState extends State<Layout> {
               ),
             ],
           ),
-          backgroundColor: Colors.blue[600],
+          backgroundColor: Colors.blueGrey,
         ),
         body: SafeArea(
           child: Center(
@@ -46,12 +46,10 @@ class _LayoutState extends State<Layout> {
                 children: [
                   const SizedBox(height: 24.0),
                   Expanded(
-                      child: SizedBox(
-                    child: Column(
-                      children: [
-                        ...widget.custom!,
-                      ],
-                    ),
+                  child: Column(
+                    children: [
+                      ...widget.custom!,
+                    ],
                   )),
                 ],
               ),
